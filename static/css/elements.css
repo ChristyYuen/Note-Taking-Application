@@ -1,0 +1,73 @@
+.welcome {
+    margin-bottom: 10px;
+}
+
+.or{
+  background-color: #DD99BB;
+}
+
+.lace{
+  background-color: #B8B3E9;
+}
+
+.section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.input::-moz-placeholder,
+.textarea::-moz-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+
+.input::-webkit-input-placeholder,
+.textarea::-webkit-input-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+
+.input:-moz-placeholder,
+.textarea:-moz-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+
+.input:-ms-input-placeholder,
+.textarea:-ms-input-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+
+.miniPink{
+	background-color: #FED4E7;
+}
+
+.plumWeb{
+	background-color: #EDA2F2;
+}
+
+.royalPurple{
+	background-color: #7353BA;
+}
+
+.blue{
+	background-color: #C7E8F3;
+}
+
+.magenta{
+	background-color: #E574BC;
+}
+
+
+.red{
+	background-color: #D5202F; 
+}
+
+.pink{
+  background-color: #FF1493; 
+}
+
+.icon-c {
+  position: relative;
+  top: .5px;
+  left: 109px;
+  margin-left: 109px;
+}
+

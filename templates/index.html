@@ -1,0 +1,145 @@
+[[extend 'layout.html']]
+<div id="vue-target">
+  <section class="section">
+    <div class="title"></div>
+
+    <!-- This is used to add a post. --->
+    <div class="level">
+      <div class="level-left">
+        <button @click="add_post" class="button pink">
+          <span class="icon"><i class=" fa fa-plus-circle fa-4x"></i></span> 
+        </button>
+      </div>
+    </div>
+
+    <!-- This displays the posts -->
+
+    <div class="columns is-multiline is-mobile">
+    
+    <!-- <div class="column is-3">  -->
+
+    <div v-for="post in posts">
+
+    <!--     <div class="column"> 
+ -->
+      <!-- This displays a main (non-reply) post -->
+      
+        <!-- <div :class="post.is_reply ? 'column is-11 is-offset-1 is-size-6' : 'column is-12 is-size-5'"> -->
+
+          <!-- <nav class="column is-mobile"> -->
+
+<!--             <span v-on:mouseout="stars_out">
+                    <span v-on:mouseover="stars_over(idx)"
+                          v-on:click="set_stars(idx)"
+                          v-for="idx in star_indices">
+                        <i v-if="idx <= num_stars_display" class="fa fa-star"></i>
+                        <i v-if="idx > num_stars_display" class="fa fa-star-o"></i>
+                    </span>
+            </span> -->
+
+            <div class="column">
+
+            <div class="tile is-ancestor">
+
+            <div class="tile is-parent is-20">
+            
+
+            <div class="tile is-child is-30">
+
+              <!-- BOX -->
+
+              <div v-if="post.edit || post.email === user_email" class="box miniPink">
+                
+                <!--<span>
+                <i v-if="post._idx <= 1" class="fa fa-star"></i>
+                </span> -->
+
+                <i class="icon-c fa fa-star-o"></i>
+                
+                <!-- id="txt" class='' -->
+                
+
+                <div v-if="!post.edit && post.email === user_email " class = "is-size-5 has-text-centered" @click="do_edit(post._idx)"><b>{{post.title}}</b></div>
+                <div v-if="!post.edit && post.email === user_email " @click="do_edit(post._idx)"><div class="control"><textarea class="textarea miniPink" rows="5" readonly>{{post.content}}</textarea></div></div>
+
+                <div v-if="post.edit"> 
+                  <label>Add a Title</label> 
+                  <div class="control is medium">
+                    <input v-model="post.title" class="input is-focused" type="text" placeholder="Title of note">
+                  </div>
+
+                <label>Create a Note</label>
+                <div class="control is medium">
+                <textarea v-model="post.content" class="textarea" placeholder="Write your text here. So this is very incomplete but I hope I get style points. AND WOOOOOO! SUMMER TIME IS HERE!! Thank you for grading! Best of luck!" rows="8"></textarea>
+                </div>
+
+
+<!--                 <textarea v-if="post.edit" v-model="post.title" class="textarea"
+                          :class="post.title === post.server_title ? 'is-link' : 'is-danger'" required>
+                </textarea>
+                <textarea v-if="post.edit" v-model="post.content" class="textarea"
+                          :class="post.content === post.server_content ? 'is-link' : 'is-danger'" required>
+                </textarea> -->
+                      <span> 
+
+                          <button v-if="post.edit" @click="do_save(post._idx)" class="button lace" ><i class="fa fa-check-square-o fa-fw"></i></button>
+                          <button v-if="post.edit" class="button miniPink"> </button>
+                          <button v-if="post.edit" class="button plumWeb"> </button>
+                          <button v-if="post.edit" class="button royalPurple"> </button>
+                          <button v-if="post.edit" class="button blue"> </button>
+                          <button v-if="post.edit" class="button magenta"> </button>
+                          <button v-if="post.edit" @click="do_delete(post._idx)" class="button or"><i class="fa fa-trash"></i></button>
+                          
+                          
+                      </span>
+
+                    </div>
+
+                      
+                        <button v-if="post.email === user_email && !post.edit" @click="do_edit(post._idx)" class="button lace">
+                        <i class="fa fa-edit"></i></button> 
+
+                        <button v-if="post.email === user_email && !post.edit" class="button miniPink"> </button>
+                        <button v-if="post.email === user_email && !post.edit" class="button plumWeb"> </button>
+                        <button v-if="post.email === user_email && !post.edit" class="button royalPurple"> </button>
+                        <button v-if="post.email === user_email && !post.edit" class="button blue"> </button>
+                        <button v-if="post.email === user_email && !post.edit" class="button magenta"> </button>
+                        <button v-if="post.email === user_email && !post.edit" @click="do_delete(post._idx)" class="button or"><i class="fa fa-trash"></i></button>
+
+             <!--  </div> -->
+              </div>   
+              </div>
+            </div>
+          <!-- </nav> -->
+        </div>
+      </div>
+    </div>
+
+ 
+  </section>
+</div>
+
+[[block page_scripts]]
+<!-- Loads the index-specific js for Vue -->
+<script src="components/starrater/starrater.js"></script>
+<script>
+  //  function f() {
+    //     var txt = document.getElementById("txt");
+    //     var txtBox = document.getElementById("txtBox");
+    //     if(txt == txtBox) {
+    //         document.getElementById("txtBox").className = "txt";
+    //         document.getElementById("txtarea").className = "txt";
+    //     } else {
+    //         document.getElementById("txt").className = "";
+    //     }
+
+        
+    // }
+
+  let posts_url = "[[=XML(posts_url)]]";
+  let delete_url = "[[=XML(delete_url)]]";
+  let user_email = "[[=XML(user_email)]]";
+  let author_name = "[[=XML(author_name)]]";
+</script>
+<script src="js/index.js"></script>
+[[end]]
