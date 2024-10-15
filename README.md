@@ -41,4 +41,4 @@ To run this application locally, follow these steps:
    ```bash
    python app.py
 
-4. Open your web browser and navigate to `http://localhost:8000` to see the Thumbs Rating Component in action.
+4. Open your web browser and navigate to `http://localhost:8000` to see the Note-Taking Application in action.
